@@ -13,20 +13,20 @@ def load_library(file)
   hash
 end
 
-def get_japanese_emoticon(library, emoticon)
-  emotions = load_library(library)
-  emotions.each do |key, value|
-    if emotions[key][:english] == emoticon
-      return emotions[key][:japanese]
+def get_japanese_emoticon(file, emoticon)
+  emoticons = load_library(file)
+  emoticons.each do |key, value|
+    if emoticons[key][:english] == emoticon
+      return emoticons[key][:japanese]
     end
   end
   return "Sorry, that emoticon was not found"
 end
 
-def get_english_meaning(library, emoticon)
-  emotions = load_library(library)
-  emotions.each do |key, value|
-    if emotions[key][:japanese] == emoticon
+def get_english_meaning(file, emoticon)
+  emoticons = load_library(file)
+  emoticons.each do |key, value|
+    if emoticons[key][:japanese] == emoticon
       return key
     end
   end
