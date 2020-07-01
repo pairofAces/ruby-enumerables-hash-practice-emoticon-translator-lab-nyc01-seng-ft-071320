@@ -1,0 +1,14 @@
+def load_library(path)
+  # code goes here
+  emoticons = YAML.load_file(path)
+  hash = {}
+  
+  hash["get_meaning"] = {}
+  hash["get_emoticon"] = {}
+  
+  emoticons.each do |meaning, emoticon_array|
+    hash["get_meaning"][emoticon_array[1]] = meaning
+    hash["get_emoticon"][emoticon_array[0]] = emoticon_array[1]
+  end
+  hash
+end
