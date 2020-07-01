@@ -3,14 +3,14 @@ require "yaml"
 require "pry"
 
 def load_library(file)
-  empty_hash = {}
+  hash = {}
   library = YAML.load_file('./lib/emoticons.yml')
   library.each do |key, value|
-    empty_hash[key] = {}
-    empty_hash[key][:english] = value[0]
-    empty_hash[key][:japanese] = value[1]
+    hash[key] = {}
+    hash[key][:english] = value[0]
+    hash[key][:japanese] = value[1]
   end
-  empty_hash
+  hash
 end
 
 def get_japanese_emoticon(library, emoticon)
